@@ -32,6 +32,7 @@ import {
   MessageSquare
 } from 'lucide-react';
 import { BrandMark } from '../components/common/BrandMark';
+import { setAuthToken, clearAuthToken } from '../config/api.js';
 
 export function AdminDashboard() {
   const [sessionState, setSessionState] = useState('loading'); // 'loading' | 'unauthenticated' | 'authenticated' | 'forbidden'
@@ -90,6 +91,8 @@ export function AdminDashboard() {
       } else if (res.status === 403) {
         setSessionState('forbidden');
         return;
+      } else if (res.status === 401) {
+        clearAuthToken();
       }
     } catch (e) {
       console.warn('Session check failed:', e.message);
@@ -263,6 +266,10 @@ export function AdminDashboard() {
         throw new Error(json.message || 'Authentication failed. Please verify credentials.');
       }
 
+      if (json.token) {
+        setAuthToken(json.token);
+      }
+
       setAdminEmail(json.user.email);
       setSessionState('authenticated');
       loadAllData();
@@ -302,6 +309,10 @@ export function AdminDashboard() {
         throw new Error(json.message || 'Google authentication failed.');
       }
 
+      if (json.token) {
+        setAuthToken(json.token);
+      }
+
       setAdminEmail(json.user.email);
       setSessionState('authenticated');
       loadAllData();
@@ -316,6 +327,7 @@ export function AdminDashboard() {
     try {
       await fetch('/api/admin/logout', { method: 'POST', credentials: 'include' });
     } catch (e) {}
+    clearAuthToken();
     setSessionState('unauthenticated');
     setSelectedProject(null);
     setAdminEmail('');
