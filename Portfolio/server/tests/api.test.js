@@ -109,6 +109,7 @@ describe('Portfolio API & Owner Authorization Test Suite', () => {
   });
 
   let ownerCookie = '';
+  let ownerBearerToken = '';
 
   test('Case 3: Owner login with correct credentials should succeed and return cookie', async () => {
     const res = await fetch(`${baseUrl}/api/admin/login`, {
@@ -124,6 +125,8 @@ describe('Portfolio API & Owner Authorization Test Suite', () => {
     const json = await res.json();
     assert.strictEqual(json.success, true);
     assert.strictEqual(json.user.email, 'zaidkhan24082006@gmail.com');
+    assert.ok(json.token, 'Expected JWT token in response body');
+    ownerBearerToken = json.token;
 
     // Extract cookie
     const setCookie = res.headers.get('set-cookie');
@@ -136,6 +139,19 @@ describe('Portfolio API & Owner Authorization Test Suite', () => {
     const res = await fetch(`${baseUrl}/api/admin/me`, {
       headers: {
         Cookie: ownerCookie
+      }
+    });
+
+    assert.strictEqual(res.status, 200);
+    const json = await res.json();
+    assert.strictEqual(json.success, true);
+    assert.strictEqual(json.user.email, 'zaidkhan24082006@gmail.com');
+  });
+
+  test('Case 6b: Owner session persistence via Bearer token without cookies', async () => {
+    const res = await fetch(`${baseUrl}/api/admin/me`, {
+      headers: {
+        Authorization: `Bearer ${ownerBearerToken}`
       }
     });
 

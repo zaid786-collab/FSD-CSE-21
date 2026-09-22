@@ -108,6 +108,7 @@ export async function login(req, res, next) {
     res.json({
       success: true,
       message: 'Authentication successful.',
+      token,
       user: {
         email: user.email,
         role: user.role
@@ -180,6 +181,7 @@ export async function googleLogin(req, res, next) {
     res.json({
       success: true,
       message: 'Google authentication successful.',
+      token,
       user: {
         email: user.email,
         role: user.role
