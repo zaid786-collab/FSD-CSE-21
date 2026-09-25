@@ -1,0 +1,79 @@
+[
+  {
+    "id": "prod-1790332774844-190",
+    "name": "HP Mouse",
+    "price": 200,
+    "category": "Wearables",
+    "stock": 15,
+    "rating": 4.8,
+    "description": "High-quality Wearables device built for performance.",
+    "createdAt": "2026-09-25T10:39:34.844Z",
+    "updatedAt": "2026-09-25T10:39:34.844Z"
+  },
+  {
+    "id": "prod-1",
+    "name": "MacBook Pro 16\" M3 Max",
+    "price": 34999,
+    "category": "Computing",
+    "stock": 14,
+    "rating": 4.9,
+    "description": "Apple M3 Max chip with 16-core CPU, 40-core GPU, and 48GB unified memory.",
+    "createdAt": "2026-09-01T10:00:00.000Z",
+    "updatedAt": "2026-09-25T10:45:56.674Z"
+  },
+  {
+    "id": "prod-2",
+    "name": "Sony WH-1000XM5 Headphones",
+    "price": 399.99,
+    "category": "Audio",
+    "stock": 28,
+    "rating": 4.8,
+    "description": "Industry-leading noise canceling with Auto NC Optimizer and 30-hour battery life.",
+    "createdAt": "2026-09-05T11:20:00.000Z",
+    "updatedAt": "2026-09-21T09:15:00.000Z"
+  },
+  {
+    "id": "prod-3",
+    "name": "Keychron Q1 Pro Mechanical Keyboard",
+    "price": 199,
+    "category": "Accessories",
+    "stock": 45,
+    "rating": 4.7,
+    "description": "Custom wireless mechanical keyboard with QMK/VIA support and CNC aluminum body.",
+    "createdAt": "2026-09-08T15:40:00.000Z",
+    "updatedAt": "2026-09-18T16:00:00.000Z"
+  },
+  {
+    "id": "prod-4",
+    "name": "LG UltraFine 27\" 4K Ergo Monitor",
+    "price": 4499.5,
+    "category": "Computing",
+    "stock": 9,
+    "rating": 4.6,
+    "description": "IPS display with HDR10, USB-C 60W power delivery, and ultra-flexible ergonomic arm.",
+    "createdAt": "2026-09-10T08:30:00.000Z",
+    "updatedAt": "2026-09-25T10:45:46.589Z"
+  },
+  {
+    "id": "prod-5",
+    "name": "Apple Watch Ultra 2",
+    "price": 799,
+    "category": "Wearables",
+    "stock": 22,
+    "rating": 4.9,
+    "description": "Rugged 49mm titanium case, precision dual-frequency GPS, and 3000 nits display.",
+    "createdAt": "2026-09-12T14:10:00.000Z",
+    "updatedAt": "2026-09-23T11:45:00.000Z"
+  },
+  {
+    "id": "prod-6",
+    "name": "Logitech MX Master 3S Mouse",
+    "price": 99.99,
+    "category": "Accessories",
+    "stock": 53,
+    "rating": 4.9,
+    "description": "Quiet clicks and 8K DPI track-on-glass sensor with ultra-fast MagSpeed scrolling.",
+    "createdAt": "2026-09-15T09:00:00.000Z",
+    "updatedAt": "2026-09-24T18:20:00.000Z"
+  }
+]
