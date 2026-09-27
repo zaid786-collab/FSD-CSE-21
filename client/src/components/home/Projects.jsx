@@ -4,6 +4,11 @@ import { ExternalLink, ArrowRight } from 'lucide-react';
 import { GithubIcon } from '../common/Icons';
 import { usePortfolio } from '../../context/PortfolioContext';
 
+const fallbackDemoLinks = {
+  'intervista-ai': 'https://intervista-ai.vercel.app/',
+  'developer-portfolio': 'https://fsd-cse-21.vercel.app/'
+};
+
 export function Projects() {
   const { portfolioData } = usePortfolio();
   const projects = portfolioData?.projects || [];
@@ -47,13 +52,12 @@ export function Projects() {
                       className="flex items-center gap-1.5 text-xs font-mono text-[#9E9E96] hover:text-[#EDEDEB] transition-colors"
                     >
                       <GithubIcon size={14} />
-                      <span>GitHub</span>
-                      <ExternalLink size={10} className="text-[#5A5A52]" />
+                      <span>Repository</span>
                     </a>
                   )}
-                  {featuredProject.liveDemoUrl && (
+                  {(featuredProject.liveDemoUrl || fallbackDemoLinks[featuredProject.slug]) && (
                     <a
-                      href={featuredProject.liveDemoUrl}
+                      href={featuredProject.liveDemoUrl || fallbackDemoLinks[featuredProject.slug]}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-1.5 text-xs font-mono text-[#D4AF37] hover:text-[#E6C65C] transition-colors"
@@ -139,18 +143,31 @@ export function Projects() {
                   </div>
                 </div>
 
-                <div className="pt-4 border-t border-[#1D1D1A] flex items-center justify-between text-xs font-mono">
-                  {p.githubUrl ? (
-                    <a
-                      href={p.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-1.5 text-[#9E9E96] hover:text-[#EDEDEB] transition-colors"
-                    >
-                      <GithubIcon size={14} />
-                      <span>Repository</span>
-                    </a>
-                  ) : <span />}
+                <div className="pt-4 border-t border-[#1D1D1A] flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
+                  <div className="flex items-center gap-4">
+                    {p.githubUrl && (
+                      <a
+                        href={p.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-1.5 text-[#9E9E96] hover:text-[#EDEDEB] transition-colors"
+                      >
+                        <GithubIcon size={14} />
+                        <span>Repository</span>
+                      </a>
+                    )}
+                    {(p.liveDemoUrl || fallbackDemoLinks[p.slug]) && (
+                      <a
+                        href={p.liveDemoUrl || fallbackDemoLinks[p.slug]}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-1.5 text-[#D4AF37] hover:text-[#E6C65C] transition-colors"
+                      >
+                        <ExternalLink size={12} />
+                        <span>Live Demo</span>
+                      </a>
+                    )}
+                  </div>
 
                   <Link
                     to={`/projects/${p.slug}`}

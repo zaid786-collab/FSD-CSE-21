@@ -83,7 +83,7 @@ export const verifiedProjects = [
     ],
     role: 'Project Leader',
     githubUrl: 'https://github.com/zaid786-collab/Intervista-AI.git',
-    liveDemoUrl: null,
+    liveDemoUrl: 'https://intervista-ai.vercel.app/',
     order: 1,
     status: 'published'
   },
@@ -184,7 +184,7 @@ export const verifiedProjects = [
     ],
     role: 'Project Leader',
     githubUrl: 'https://github.com/zaid786-collab/My-Portfolio.git',
-    liveDemoUrl: null,
+    liveDemoUrl: 'https://fsd-cse-21.vercel.app/',
     order: 5,
     status: 'published'
   }
