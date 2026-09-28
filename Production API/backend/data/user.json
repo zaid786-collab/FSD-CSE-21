@@ -1,0 +1,11 @@
+{
+  "id": "usr-101",
+  "name": "Zaid Khan",
+  "email": "zaid@enterprise.dev",
+  "role": "Inventory & Production Lead",
+  "department": "Engineering & Operations",
+  "status": "Online",
+  "avatar": "https://api.dicebear.com/7.x/bottts/svg?seed=ZaidProduction",
+  "permissions": ["create:product", "edit:product", "delete:product", "view:analytics"],
+  "lastActive": "Just now"
+}
