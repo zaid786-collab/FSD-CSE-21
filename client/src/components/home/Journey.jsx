@@ -1,5 +1,6 @@
 import React from 'react';
 import { usePortfolio } from '../../context/PortfolioContext';
+import { verifiedEducation } from '../../data/portfolio';
 
 const defaultTimelineEntries = [
   {
@@ -33,6 +34,14 @@ const defaultTimelineEntries = [
     location: 'Ghaziabad, India',
     category: 'Undergraduate Degree',
     description: 'Core focus on Data Structures & Algorithms, Object-Oriented Software Design, Database Systems, and Computer Architecture. Current CGPA: 9.1.'
+  },
+  {
+    role: 'Intermediate — Science Stream',
+    organization: 'Aligarh Muslim University',
+    period: '2023 – 2025',
+    location: 'Aligarh, India',
+    category: 'Senior Secondary / High School',
+    description: 'Senior secondary coursework focused on Physics, Chemistry, and Mathematics (PCM) with strong analytical foundations. Aggregate Score: 86%.'
   }
 ];
 
@@ -68,15 +77,27 @@ export function Journey() {
       });
     }
 
-    if (portfolioData?.education && portfolioData.education.length > 0) {
-      portfolioData.education.forEach(edu => {
+    const educationSource = (portfolioData?.education && portfolioData.education.length > 0)
+      ? portfolioData.education
+      : verifiedEducation;
+
+    if (educationSource && educationSource.length > 0) {
+      educationSource.forEach(edu => {
+        const isIntermediate = edu.degree?.toLowerCase().includes('intermediate') ||
+                               edu.degree?.toLowerCase().includes('12') ||
+                               edu.fieldOfStudy?.toLowerCase().includes('science');
+        const isAMU = edu.institution?.toLowerCase().includes('aligarh') ||
+                      edu.institution?.toLowerCase().includes('amu');
+
         list.push({
           role: edu.degree + (edu.fieldOfStudy ? ` — ${edu.fieldOfStudy}` : ''),
           organization: edu.institution,
-          period: edu.period || `${edu.startYear} – ${edu.endYear}`,
-          location: 'Ghaziabad, India',
-          category: 'Undergraduate Degree',
-          description: edu.description ? `${edu.description} Current CGPA: ${edu.cgpa}.` : `Core focus on Computer Science and Engineering. Current CGPA: ${edu.cgpa}.`
+          period: edu.period || (edu.startYear && edu.endYear ? `${edu.startYear} – ${edu.endYear}` : 'Ongoing'),
+          location: edu.location || (isAMU ? 'Aligarh, India' : 'Ghaziabad, India'),
+          category: edu.category || (isIntermediate ? 'Senior Secondary / High School' : 'Undergraduate Degree'),
+          description: edu.description || (isIntermediate
+            ? `Senior secondary coursework focused on Physics, Chemistry, and Mathematics (PCM) with strong analytical foundations. Aggregate Score: ${edu.cgpa}.`
+            : `Core focus on Data Structures & Algorithms, Object-Oriented Software Design, Database Systems, and Computer Architecture. Current CGPA: ${edu.cgpa}.`)
         });
       });
     }

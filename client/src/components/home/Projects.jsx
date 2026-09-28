@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ExternalLink, ArrowRight } from 'lucide-react';
 import { GithubIcon } from '../common/Icons';
 import { usePortfolio } from '../../context/PortfolioContext';
+import { verifiedProjects } from '../../data/portfolio';
 
 const fallbackDemoLinks = {
   'intervista-ai': 'https://intervista-ai.vercel.app/',
@@ -11,8 +12,9 @@ const fallbackDemoLinks = {
 };
 
 export function Projects() {
-  const { portfolioData } = usePortfolio();
-  const projects = portfolioData?.projects || [];
+  const { portfolioData, loading } = usePortfolio();
+  const rawProjects = portfolioData?.projects;
+  const projects = (rawProjects && rawProjects.length > 0) ? rawProjects : verifiedProjects;
 
   const featuredProject = projects.length > 0 ? projects[0] : null;
   const remainingProjects = projects.length > 1 ? projects.slice(1) : [];

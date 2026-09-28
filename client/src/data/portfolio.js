@@ -1,21 +1,14 @@
-import mongoose from 'mongoose';
-import dotenv from 'dotenv';
-import { fileURLToPath } from 'url';
-import path from 'path';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-dotenv.config({ path: path.join(__dirname, '../.env') });
-
-import { Profile } from '../models/Profile.js';
-import { Project } from '../models/Project.js';
-import { Skill } from '../models/Skill.js';
-import { Experience } from '../models/Experience.js';
-import { Education } from '../models/Education.js';
-import { Certification } from '../models/Certification.js';
-import { Hackathon } from '../models/Hackathon.js';
-import { Achievement } from '../models/Achievement.js';
-import { AdminUser, AUTHORIZED_ADMIN_EMAIL } from '../models/AdminUser.js';
+/**
+ * Authoritative Verified Portfolio Dataset
+ * 
+ * Provides an immediate, deterministic, zero-latency fallback for public visitors
+ * while the live backend API connects to MongoDB.
+ * 
+ * Contains 100% verified, production-accurate information:
+ * - 5 Verified Core Projects (Intervista AI, Crime Lens, Smart Stocks, Salesforce Clone, Developer Portfolio)
+ * - 2 Verified Education Records (ABES Engineering College, Aligarh Muslim University)
+ * - Verified Experience, Skills, Certifications, Hackathons, Achievements, and Profile
+ */
 
 export const verifiedProfile = {
   name: 'Mohammad Zaid Khan',
@@ -23,42 +16,22 @@ export const verifiedProfile = {
   headline: 'Building scalable software, solving problems through DSA/CP, and exploring AI/GenAI.',
   location: 'Noida, India',
   email: 'zaidkhan24082006@gmail.com',
+  publicEmail: 'zaidkhan24082006@gmail.com',
   bio: 'Computer Science & Engineering student at ABES Engineering College with strong fundamentals in full-stack architecture, backend systems, and competitive programming. Committed to building clean, scalable software, mastering algorithmic problem solving, and exploring modern AI/GenAI technologies.',
-  socialLinks: [
-    { platform: 'LinkedIn', url: 'https://www.linkedin.com/in/mohammad-zaid-khan-a2927a370/', label: 'LinkedIn', order: 1 },
-    { platform: 'GitHub', url: 'https://github.com/zaid786-collab', label: 'GitHub', order: 2 },
-    { platform: 'LeetCode', url: 'https://leetcode.com/u/MOHAMMADZAIDKHAN7/', label: 'LeetCode', order: 3 },
-    { platform: 'CodeChef', url: 'https://www.codechef.com/users/zaid_khan07', label: 'CodeChef', order: 4 },
-    { platform: 'Codeforces', url: 'https://codeforces.com/profile/MohammadZaidKhan', label: 'Codeforces', order: 5 }
-  ],
-  status: 'published'
+  availabilityStatus: 'Available for Opportunities',
+  availabilityStatement: 'Open to software engineering opportunities, internships & freelance projects',
+  contactFormEnabled: true,
+  siteTitle: 'Mohammad Zaid Khan — Software Engineer Portfolio',
+  metaDescription: 'Portfolio of Mohammad Zaid Khan - Software Engineer, Full-Stack Developer, and Competitive Programmer.',
+  footerCopyright: '© 2026 Mohammad Zaid Khan',
+  developerTagline: 'Building scalable software, solving problems through DSA/CP, and exploring AI/GenAI.',
+  githubUrl: 'https://github.com/zaid786-collab',
+  linkedinUrl: 'https://www.linkedin.com/in/mohammad-zaid-khan-a2927a370/',
+  leetcodeUrl: 'https://leetcode.com/u/MOHAMMADZAIDKHAN7/',
+  codechefUrl: 'https://www.codechef.com/users/zaid_khan07',
+  codeforcesUrl: 'https://codeforces.com/profile/MohammadZaidKhan',
+  resumeUrl: '/Mohammad_Zaid_Khan_Resume.pdf'
 };
-
-export const verifiedSkills = [
-  // Languages
-  { name: 'C', category: 'Languages', order: 1 },
-  { name: 'C++', category: 'Languages', order: 2 },
-  { name: 'Java', category: 'Languages', order: 3 },
-  { name: 'JavaScript', category: 'Languages', order: 4 },
-  { name: 'Python', category: 'Languages', order: 5 },
-  // Frontend
-  { name: 'HTML', category: 'Frontend', order: 6 },
-  { name: 'CSS', category: 'Frontend', order: 7 },
-  { name: 'React', category: 'Frontend', order: 8 },
-  // Backend
-  { name: 'Node.js', category: 'Backend', order: 9 },
-  { name: 'Express.js', category: 'Backend', order: 10 },
-  { name: 'Flask', category: 'Backend', order: 11 },
-  // Database
-  { name: 'MongoDB', category: 'Database', order: 12 },
-  { name: 'SQL', category: 'Database', order: 13 },
-  // Tools
-  { name: 'Git', category: 'Tools', order: 14 },
-  { name: 'GitHub', category: 'Tools', order: 15 },
-  { name: 'Docker', category: 'Tools', order: 16 },
-  // Other
-  { name: 'AI / GenAI', category: 'Other', order: 17 }
-];
 
 export const verifiedProjects = [
   {
@@ -177,7 +150,7 @@ export const verifiedProjects = [
       'Protected admin portal (/mzk-control) with draft/publish workflows, autosave, and safe soft deletion',
       'Strict accessibility compliance with WCAG standards and prefers-reduced-motion support'
     ],
-    techStack: ['React 19', 'Vite', 'Tailwind CSS', 'Framer Motion', 'Node.js', 'Express', 'MongoDB', 'Mongoose'],
+    techStack: ['React 19', 'Vite', 'Tailwind CSS', 'Node.js', 'Express', 'MongoDB'],
     architecture: 'Decoupled full-stack architecture: React SPA client with Express REST API, MongoDB Atlas database layer, and environment-isolated security policies.',
     challenges: [
       'Implementing robust CSRF, rate-limiting, and admin lock mechanisms while maintaining smooth client performance and zero-dependency PDF generation'
@@ -190,37 +163,6 @@ export const verifiedProjects = [
   }
 ];
 
-export const verifiedExperience = [
-  {
-    title: 'Microsoft Dynamics 365 Analyst',
-    company: 'IT Solutions',
-    type: 'Freelance',
-    period: 'Ongoing',
-    location: 'Remote',
-    description: 'Providing technical consulting and analysis on Microsoft Dynamics 365 implementations, workflow automations, and enterprise data integrations.',
-    technologies: ['Microsoft Dynamics 365', 'Data Analysis', 'Enterprise Solutions'],
-    order: 1,
-    status: 'published'
-  }
-];
-
-export const verifiedHackathons = [
-  {
-    name: 'Smart India Hackathon (SIH)',
-    role: 'Team Leader',
-    description: 'Led team in designing and architecting technical solutions addressing nationwide real-world challenges, coordinating system architecture, sprint workflows, and technical presentations.',
-    technologies: ['System Design', 'Full-Stack Development', 'Problem Solving', 'Team Leadership'],
-    order: 1
-  },
-  {
-    name: 'Build with Bharat',
-    role: 'Team Leader',
-    description: 'Directed engineering team in building scalable digital products, overseeing rapid prototyping, software engineering implementation, and hackathon product delivery.',
-    technologies: ['Rapid Prototyping', 'Software Engineering', 'Team Leadership'],
-    order: 2
-  }
-];
-
 export const verifiedEducation = [
   {
     degree: 'B.Tech',
@@ -230,6 +172,8 @@ export const verifiedEducation = [
     endYear: '2029',
     period: '2025–2029',
     cgpa: '9.1',
+    location: 'Ghaziabad, India',
+    category: 'Undergraduate Degree',
     description: 'Core focus on Data Structures & Algorithms, Object-Oriented Software Design, Database Systems, and Computer Architecture.',
     order: 1,
     status: 'published'
@@ -242,10 +186,55 @@ export const verifiedEducation = [
     endYear: '2025',
     period: '2023–2025',
     cgpa: '86%',
+    location: 'Aligarh, India',
+    category: 'Senior Secondary / High School',
     description: 'Senior secondary coursework focused on Physics, Chemistry, and Mathematics (PCM) with strong analytical foundations.',
     order: 2,
     status: 'published'
   }
+];
+
+export const verifiedExperience = [
+  {
+    title: 'Microsoft Dynamics 365 Analyst',
+    role: 'Microsoft Dynamics 365 Analyst',
+    company: 'IT Solutions',
+    organization: 'IT Solutions',
+    type: 'Freelance Consulting',
+    employmentType: 'Freelance Consulting',
+    period: 'Ongoing',
+    location: 'Remote',
+    description: 'Providing technical consulting, workflow automation analysis, and data mapping for Microsoft Dynamics 365 enterprise implementations.',
+    technologies: ['Microsoft Dynamics 365', 'Data Analysis', 'Enterprise Solutions'],
+    order: 1,
+    status: 'published'
+  }
+];
+
+export const verifiedSkills = [
+  // Languages
+  { name: 'C', category: 'Languages', order: 1 },
+  { name: 'C++', category: 'Languages', order: 2 },
+  { name: 'Java', category: 'Languages', order: 3 },
+  { name: 'JavaScript', category: 'Languages', order: 4 },
+  { name: 'Python', category: 'Languages', order: 5 },
+  // Frontend
+  { name: 'HTML', category: 'Frontend', order: 6 },
+  { name: 'CSS', category: 'Frontend', order: 7 },
+  { name: 'React', category: 'Frontend', order: 8 },
+  // Backend
+  { name: 'Node.js', category: 'Backend', order: 9 },
+  { name: 'Express.js', category: 'Backend', order: 10 },
+  { name: 'Flask', category: 'Backend', order: 11 },
+  // Database
+  { name: 'MongoDB', category: 'Database', order: 12 },
+  { name: 'SQL', category: 'Database', order: 13 },
+  // Tools
+  { name: 'Git', category: 'Tools', order: 14 },
+  { name: 'GitHub', category: 'Tools', order: 15 },
+  { name: 'Docker', category: 'Tools', order: 16 },
+  // Other
+  { name: 'AI / GenAI', category: 'Other', order: 17 }
 ];
 
 export const verifiedCertifications = [
@@ -307,6 +296,27 @@ export const verifiedCertifications = [
   }
 ];
 
+export const verifiedHackathons = [
+  {
+    name: 'Smart India Hackathon (SIH)',
+    role: 'Team Leader',
+    period: 'Hackathon Leadership',
+    location: 'India',
+    description: 'Directed engineering team in architecting technical solutions addressing real-world problem statements, coordinating sprint milestones and technical solution defense.',
+    technologies: ['System Design', 'Full-Stack Development', 'Problem Solving', 'Team Leadership'],
+    order: 1
+  },
+  {
+    name: 'Build with Bharat',
+    role: 'Team Leader',
+    period: 'Hackathon Leadership',
+    location: 'India',
+    description: 'Led technical team during rapid prototyping and software development sprints to engineer scalable digital systems.',
+    technologies: ['Rapid Prototyping', 'Software Engineering', 'Team Leadership'],
+    order: 2
+  }
+];
+
 export const verifiedAchievements = [
   {
     title: 'LeetCode 100+ Algorithmic Challenges Solved',
@@ -337,117 +347,15 @@ export const verifiedAchievements = [
   }
 ];
 
-export async function seedDatabase() {
-  const mongoUri = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/portfolio';
-  console.log(`Connecting to MongoDB at ${mongoUri.replace(/:([^:@]{4})[^:@]*@/, ':****@')}...`);
+export const verifiedPortfolioData = {
+  profile: verifiedProfile,
+  projects: verifiedProjects,
+  education: verifiedEducation,
+  experience: verifiedExperience,
+  skills: verifiedSkills,
+  certifications: verifiedCertifications,
+  hackathons: verifiedHackathons,
+  achievements: verifiedAchievements
+};
 
-  try {
-    await mongoose.connect(mongoUri);
-    console.log('Connected to MongoDB successfully.');
-
-    // 1. Profile (upsert)
-    await Profile.findOneAndUpdate(
-      { email: verifiedProfile.email },
-      verifiedProfile,
-      { upsert: true, new: true }
-    );
-    console.log('✓ Profile seeded / updated.');
-
-    // 2. Skills
-    for (const s of verifiedSkills) {
-      await Skill.findOneAndUpdate(
-        { name: s.name },
-        s,
-        { upsert: true, new: true }
-      );
-    }
-    console.log(`✓ ${verifiedSkills.length} Skills seeded.`);
-
-    // 3. Projects
-    for (const p of verifiedProjects) {
-      await Project.findOneAndUpdate(
-        { slug: p.slug },
-        p,
-        { upsert: true, new: true }
-      );
-    }
-    console.log(`✓ ${verifiedProjects.length} Projects seeded.`);
-
-    // 4. Experience
-    for (const e of verifiedExperience) {
-      await Experience.findOneAndUpdate(
-        { title: e.title, company: e.company },
-        e,
-        { upsert: true, new: true }
-      );
-    }
-    console.log(`✓ ${verifiedExperience.length} Experience records seeded.`);
-
-    // 5. Hackathons
-    for (const h of verifiedHackathons) {
-      await Hackathon.findOneAndUpdate(
-        { name: h.name },
-        h,
-        { upsert: true, new: true }
-      );
-    }
-    console.log(`✓ ${verifiedHackathons.length} Hackathon entries seeded.`);
-
-    // 6. Education
-    for (const edu of verifiedEducation) {
-      await Education.findOneAndUpdate(
-        { degree: edu.degree, institution: edu.institution },
-        edu,
-        { upsert: true, new: true }
-      );
-    }
-    console.log(`✓ ${verifiedEducation.length} Education records seeded.`);
-
-    // 7. Certifications
-    for (const c of verifiedCertifications) {
-      await Certification.findOneAndUpdate(
-        { title: c.title, issuer: c.issuer },
-        c,
-        { upsert: true, new: true }
-      );
-    }
-    console.log(`✓ ${verifiedCertifications.length} Certifications seeded.`);
-
-    // 8. Achievements
-    for (const a of verifiedAchievements) {
-      await Achievement.findOneAndUpdate(
-        { title: a.title },
-        a,
-        { upsert: true, new: true }
-      );
-    }
-    console.log(`✓ ${verifiedAchievements.length} Achievements seeded.`);
-
-    // 8. Admin User (if ADMIN_INITIAL_PASSWORD is provided in .env, seed it; otherwise warn)
-    const adminPassword = process.env.ADMIN_INITIAL_PASSWORD;
-    const existingAdmin = await AdminUser.findOne({ email: AUTHORIZED_ADMIN_EMAIL });
-    if (!existingAdmin && adminPassword) {
-      const admin = new AdminUser({
-        email: AUTHORIZED_ADMIN_EMAIL,
-        password: adminPassword
-      });
-      await admin.save();
-      console.log(`✓ Admin user initialized for ${AUTHORIZED_ADMIN_EMAIL}.`);
-    } else if (existingAdmin) {
-      console.log(`✓ Admin user already exists for ${AUTHORIZED_ADMIN_EMAIL}.`);
-    } else {
-      console.log(`ℹ Admin user not seeded yet. Set ADMIN_INITIAL_PASSWORD in .env and rerun seed.`);
-    }
-
-    console.log('--- Idempotent database seeding complete ---');
-  } catch (err) {
-    console.error('Seeding error:', err.stack || err.message);
-  } finally {
-    await mongoose.disconnect();
-  }
-}
-
-// If run directly:
-if (process.argv[1] === fileURLToPath(import.meta.url)) {
-  seedDatabase();
-}
+export default verifiedPortfolioData;
