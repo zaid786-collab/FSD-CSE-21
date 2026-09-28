@@ -6,6 +6,7 @@ import { usePortfolio } from '../../context/PortfolioContext';
 
 const fallbackDemoLinks = {
   'intervista-ai': 'https://intervista-ai.vercel.app/',
+  'salesforce-clone': 'https://salesforce-clone-beta.vercel.app/',
   'developer-portfolio': 'https://fsd-cse-21.vercel.app/'
 };
 

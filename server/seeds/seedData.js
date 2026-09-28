@@ -158,7 +158,7 @@ export const verifiedProjects = [
     ],
     role: 'Project Leader',
     githubUrl: 'https://github.com/zaid786-collab/Salesforce-Clone.git',
-    liveDemoUrl: null,
+    liveDemoUrl: 'https://salesforce-clone-beta.vercel.app/',
     order: 4,
     status: 'published'
   },

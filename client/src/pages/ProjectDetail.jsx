@@ -81,7 +81,7 @@ const staticProjects = {
     tagline: 'Enterprise CRM Landing Architecture & Interactive Platform Clone',
     role: 'Project Leader',
     githubUrl: 'https://github.com/zaid786-collab/Salesforce-Clone.git',
-    liveDemoUrl: null,
+    liveDemoUrl: 'https://salesforce-clone-beta.vercel.app/',
     techStack: ['HTML5', 'CSS3', 'JavaScript'],
     problemStatement: 'Understanding enterprise web standards, responsive layout complexity, and commercial landing page user flows by building a production-faithful implementation of Salesforce.',
     solution: 'Engineered a full-fidelity CRM web portal featuring enterprise-grade multi-tier navigation, interactive product catalogs, customer success story showcases, and lead generation workflows.',
@@ -135,7 +135,12 @@ export function ProjectDetail() {
         if (res.ok) {
           const json = await res.json();
           if (json.success && json.data) {
-            setProject(json.data);
+            const fallback = staticProjects[slug] || {};
+            setProject({
+              ...fallback,
+              ...json.data,
+              liveDemoUrl: json.data.liveDemoUrl || fallback.liveDemoUrl || null
+            });
             return;
           }
         }
