@@ -1,0 +1,90 @@
+[
+  {
+    "id": "pdf-1",
+    "title": "Unit 1: HTML5, CSS3 & Responsive Web Design",
+    "subject": "Web Development",
+    "semester": "3rd Sem CS",
+    "pages": 4,
+    "fileSize": "142 KB",
+    "createdAt": "2026-10-01",
+    "downloads": 59,
+    "topics": [
+      "Semantic HTML",
+      "Flexbox Model",
+      "CSS Grid Layout",
+      "Media Queries"
+    ],
+    "content": "CHAPTER 1: SEMANTIC HTML5\nSemantic elements clearly describe their meaning to both the browser and developer.\n- <header>: Specifies a header for a document or section.\n- <nav>: Defines a set of navigation links.\n- <main>: Specifies the main content of a document.\n- <article>: Independent, self-contained content.\n- <section>: Thematic grouping of content.\n- <footer>: Footer for a document or section.\n\nCHAPTER 2: CSS FLEXBOX\nFlexbox is a 1-dimensional layout model for distributing space among items in an interface.\n- display: flex;\n- justify-content: flex-start | center | flex-end | space-between | space-around;\n- align-items: stretch | center | flex-start | flex-end;\n- flex-direction: row | column;\n\nCHAPTER 3: CSS GRID\nCSS Grid is a 2-dimensional layout system for rows and columns.\n- display: grid;\n- grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));\n- gap: 20px;\n\nCHAPTER 4: RESPONSIVE DESIGN & MEDIA QUERIES\n- Mobile-first approach: Write baseline styles for mobile, then use @media (min-width: 768px) for larger screens."
+  },
+  {
+    "id": "pdf-2",
+    "title": "Unit 2: JavaScript ES6+, DOM Manipulation & Async/Await",
+    "subject": "Web Development",
+    "semester": "3rd Sem CS",
+    "pages": 5,
+    "fileSize": "190 KB",
+    "createdAt": "2026-10-02",
+    "downloads": 75,
+    "topics": [
+      "ES6 Features",
+      "DOM APIs",
+      "Promises",
+      "Async/Await",
+      "Event Loop"
+    ],
+    "content": "CHAPTER 1: MODERN JAVASCRIPT ES6+\n- let and const: Block-scoped variable declarations.\n- Arrow Functions: Concise syntax without own 'this' binding.\n- Destructuring: Unpacking values from arrays or objects.\n- Spread & Rest Operators (...): Copying arrays/objects or accepting arbitrary arguments.\n\nCHAPTER 2: DOM MANIPULATION\n- document.getElementById(), querySelector(), querySelectorAll()\n- element.addEventListener('click', handler)\n- Creating elements: document.createElement('div')\n\nCHAPTER 3: ASYNCHRONOUS JAVASCRIPT\n- JavaScript is single-threaded, using an Event Loop to handle non-blocking asynchronous operations.\n- Promises: Object representing the eventual completion (or failure) of an asynchronous operation (Pending, Fulfilled, Rejected).\n- Async/Await: Syntactic sugar over Promises providing clean synchronous-looking code structure."
+  },
+  {
+    "id": "pdf-3",
+    "title": "Unit 3: Database Normalization & SQL Complete Notes",
+    "subject": "DBMS",
+    "semester": "3rd Sem CS",
+    "pages": 6,
+    "fileSize": "220 KB",
+    "createdAt": "2026-09-28",
+    "downloads": 92,
+    "topics": [
+      "1NF",
+      "2NF",
+      "3NF",
+      "BCNF",
+      "DDL/DML",
+      "Indexing"
+    ],
+    "content": "CHAPTER 1: DATABASE NORMALIZATION OVERVIEW\nNormalization is the systematic process of organizing data in a database to reduce redundancy and avoid insertion, update, and deletion anomalies.\n\nCHAPTER 2: NORMAL FORMS EXPLAINED\n1. First Normal Form (1NF):\n   - Each table cell contains a single value (atomic values).\n   - Each record needs to be unique.\n\n2. Second Normal Form (2NF):\n   - Must be in 1NF.\n   - No Partial Dependency: All non-key attributes must be fully functionally dependent on the primary key.\n\n3. Third Normal Form (3NF):\n   - Must be in 2NF.\n   - No Transitive Dependency: Non-key attributes must not depend on other non-key attributes.\n\n4. Boyce-Codd Normal Form (BCNF):\n   - Stricter form of 3NF where for every functional dependency X -> Y, X must be a super key."
+  },
+  {
+    "id": "pdf-4",
+    "title": "Unit 4: Binary Trees, BST & Graph Algorithms",
+    "subject": "Data Structures",
+    "semester": "3rd Sem CS",
+    "pages": 5,
+    "fileSize": "210 KB",
+    "createdAt": "2026-09-25",
+    "downloads": 65,
+    "topics": [
+      "BST Search",
+      "Tree Traversals",
+      "AVL Trees",
+      "BFS & DFS Graphs"
+    ],
+    "content": "CHAPTER 1: BINARY SEARCH TREES (BST)\nProperties:\n- Left subtree values < Root value.\n- Right subtree values > Root value.\n- Both left and right subtrees must also be BSTs.\n\nTraversals:\n- In-Order (Left, Root, Right): Returns nodes in ascending sorted order.\n- Pre-Order (Root, Left, Right): Useful for tree cloning.\n- Post-Order (Left, Right, Root): Useful for tree deletion.\n\nTime Complexity:\n- Average: O(log n) for Search, Insert, and Delete.\n- Worst Case (Skewed): O(n).\n\nCHAPTER 2: GRAPH TRAVERSALS\n- Breadth-First Search (BFS): Uses Queue data structure, explores neighbor nodes level by level.\n- Depth-First Search (DFS): Uses Stack (or recursion), explores as deep as possible before backtracking."
+  },
+  {
+    "id": "pdf-5",
+    "title": "Unit 5: CPU Scheduling, Deadlocks & Memory Management",
+    "subject": "Operating Systems",
+    "semester": "3rd Sem CS",
+    "pages": 4,
+    "fileSize": "165 KB",
+    "createdAt": "2026-09-20",
+    "downloads": 49,
+    "topics": [
+      "FCFS / SJF / Round Robin",
+      "Deadlock Conditions",
+      "Paging",
+      "Virtual Memory"
+    ],
+    "content": "CHAPTER 1: CPU SCHEDULING ALGORITHMS\n- First-Come, First-Served (FCFS): Non-preemptive, simple, suffers from Convoy Effect.\n- Shortest Job First (SJF): Gives minimum average waiting time. Preemptive variant: SRTF.\n- Round Robin (RR): Preemptive, utilizes time quantum (TQ), fair for time-sharing systems.\n\nCHAPTER 2: DEADLOCK PRINCIPLES\nFour Necessary Coffman Conditions for Deadlock:\n1. Mutual Exclusion\n2. Hold and Wait\n3. No Preemption\n4. Circular Wait\n\nDeadlock Handling:\n- Deadlock Prevention\n- Deadlock Avoidance (Banker's Algorithm)\n- Deadlock Detection and Recovery"
+  }
+]

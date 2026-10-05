@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notes App - Search & Download</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="app-header">
+      <div>
+        <h1>Notes App</h1>
+        <p>Search particular notes and download them instantly</p>
+      </div>
+      <div style="display: flex; gap: 8px;">
+        <button id="exportAllBtn" class="btn btn-secondary btn-sm">
+          Download All Notes
+        </button>
+        <button id="openAddModalBtn" class="btn btn-primary btn-sm">
+          + Add Note
+        </button>
+      </div>
+    </header>
+
+    <!-- Search Section -->
+    <div class="search-section">
+      <div class="search-input-group">
+        <input 
+          type="text" 
+          id="searchInput" 
+          class="search-input" 
+          placeholder="Type here to search notes by title, topic, or content..." 
+        />
+        <button id="clearSearchBtn" class="btn btn-secondary btn-sm" style="display: none;">
+          Clear
+        </button>
+      </div>
+
+      <!-- Category Filter -->
+      <div id="categoryChips" class="category-filter">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+
+    <!-- Notes Count -->
+    <div id="resultsCount" style="margin-bottom: 12px; font-size: 14px; color: #666;">
+      Showing all notes
+    </div>
+
+    <!-- Notes List -->
+    <div id="notesGrid" class="notes-list">
+      <!-- Rendered by JS -->
+    </div>
+
+    <!-- Empty State -->
+    <div id="emptyState" class="empty-box" style="display: none;">
+      <p>No notes found matching your query.</p>
+      <button id="emptyAddBtn" class="btn btn-primary btn-sm" style="margin-top: 10px;">
+        Create a Note
+      </button>
+    </div>
+  </div>
+
+  <!-- Simple Add Note Modal -->
+  <div id="noteModal" class="modal-overlay" style="display: none;">
+    <div class="modal-content">
+      <h2>Add New Note</h2>
+      <form id="noteForm">
+        <div class="form-group">
+          <label for="noteTitleInput">Note Title *</label>
+          <input type="text" id="noteTitleInput" class="form-control" placeholder="e.g. CSS Flexbox Cheat Sheet" required />
+        </div>
+
+        <div class="form-group">
+          <label for="noteCategoryInput">Subject / Category</label>
+          <input type="text" id="noteCategoryInput" class="form-control" placeholder="e.g. Web Development, DBMS, DSA" value="Web Development" />
+        </div>
+
+        <div class="form-group">
+          <label for="noteContentInput">Note Content *</label>
+          <textarea id="noteContentInput" class="form-control" placeholder="Write your notes here..." required></textarea>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" id="closeNoteModalBtn" class="btn btn-secondary btn-sm">Cancel</button>
+          <button type="submit" class="btn btn-primary btn-sm">Save Note</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

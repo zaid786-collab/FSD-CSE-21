@@ -1,0 +1,20 @@
+{
+  "name": "notevault-fullstack",
+  "version": "2.0.0",
+  "description": "Fullstack Notes Search & Download Application in React and Express",
+  "scripts": {
+    "server": "node --watch server/server.js",
+    "client": "npm --prefix client run dev",
+    "dev": "node dev-runner.js",
+    "install:all": "npm --prefix server install && npm --prefix client install"
+  },
+  "keywords": [
+    "notes",
+    "search",
+    "download",
+    "react",
+    "express"
+  ],
+  "author": "",
+  "license": "ISC"
+}
